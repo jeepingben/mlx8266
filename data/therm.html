@@ -1,0 +1,49 @@
+<head>
+    <link href="therm.css" rel="stylesheet">
+    
+    <meta charset="utf-8"/>
+</head>
+<title>Temperature</title>
+<body role="document">
+    <div id=header>
+    </div>
+    <center><div id=temperatureDiv></div></center>
+    
+    <center>
+     <button type="button" id=resetMinMax>Clear Min/Max</button> </center>
+     <div id=minMaxTempDiv>min/max</div>
+ <br>
+      <div id=alarmDiv>
+      
+      <center>                              
+            <input  id='tempSlider' type='range' min=-40 max=400 name='alarm'> 
+            <br>
+            <label id='tempCurDiv' for='tempSlider' >0°F</label> </center>
+            <div class="verticalRadio">
+            <label class='checkbox' for='alarmOff'>No Alarm</label>
+            <input id='alarmOff' name='alarm' type='radio' value='No Alarm' checked>
+            </div>
+            <div class="verticalRadio">
+            <label class='checkbox' for='heatAlarm'>High Temperature Alarm</label>
+            <input id='alarmHigh' name='alarm' type='radio' value='HighTemp'>
+            </div>
+            <div class="verticalRadio">
+            <label class='checkbox' for='coldAlarm'>Low Temperature Alarm</label>
+            <input id='alarmLow' name='alarm' type='radio' value='LowTemp'>
+            </div>
+       </div>
+        <br>
+       <div id=battDiv></div>
+       <center><canvas id="chart" height="100" width="500"></canvas></center>
+       <label class='checkbox-inline' for='graphEn'>Graph Enabled</label>
+       <input id='graphEn' name='graphEn' type='checkbox' value='Graph Enabled' checked>
+       <div class='form-control'>
+            <label class='checkbox-inline ' for='unitsF'>Imperial</label>
+            <input id='unitsF' type='radio' value='Imperial' name='units' checked>
+            <label class='checkbox-inline' for='unitsC'>Metric</label>
+            <input id='unitsC' name='units' type='radio' value='Metric'>
+      </div>
+       <div id=dismissDiv>Dismiss Alarm?</div>
+</body>
+<script src="smoothie.js" type="text/javascript"></script>
+<script src="therm.js"></script>

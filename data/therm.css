@@ -1,0 +1,49 @@
+body{background-color: darkgrey;
+	  width: 100%;
+	  font-size: 2vw;
+	  }
+#temperatureDiv {
+	font-size: 14vw;
+	color: darkred;
+}
+#resetMinMax {
+	width: 50%;
+	font-size: 4vw;
+}
+#minMaxTempDiv {
+	width: 70%;
+	font-size: 4vw;
+}
+#tempSlider {
+	width: 90%;
+}
+#battDiv {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+#alarmDiv {
+	display:block;
+}
+#dismissDiv {
+	display: none;
+	position: absolute;
+	top: 15%;
+	left: 25%;
+	width: 50%;
+	height: 50%;
+	padding: 16px;
+	border: 16px solid red;
+	background-color: lightgrey;
+	z-index:1002;
+	overflow: auto;
+	font-size: 4vw;
+	text-align: center;
+	vertical-align: middle; 
+}
+.verticalRadio  {
+	display:block;
+}
+#chart {
+	width: 80%;
+}
