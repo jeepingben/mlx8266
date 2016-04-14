@@ -3,9 +3,7 @@
    serves a web-app to display temperature info
    provides captive portal
 
-    #TODO - write a nicer web app
-    #TODO - loading screen
-    #TODO - temperature/time graph
+
     #TODO - clean this POS up
     #TODO - P2P mode with power saving    
 
@@ -18,7 +16,6 @@
 #include <ESP8266WebServer.h>
 #include <FS.h>
 
-#include "pages.h"
 
 /* DHTServer - ESP8266 Webserver with a DHT sensor as an input
 
@@ -108,7 +105,8 @@ String getContentType(String filename) {
 void setup(void) {
   // You can open the Arduino IDE Serial Monitor window to see what the code is doing
   //Serial.begin(115200); // Serial connection from ESP-01 via 3.3v console cable
-  
+  pinMode(LED_BUILTIN, OUTPUT);  
+  digitalWrite(LED_BUILTIN, HIGH);
   mlx.begin(); // initialize temperature sensor
   
   // Connect to WiFi network
@@ -157,7 +155,6 @@ void loop(void) {
 
   dnsServer.processNextRequest();
   server.handleClient();
-  getBatteryLevel();
 }
 
 void gettemperature() {
@@ -167,6 +164,7 @@ void gettemperature() {
   // Works better than delay for things happening elsewhere also
   currentMillis = millis();
   if (currentMillis - previousTempMillis >= interval) {
+    digitalWrite(LED_BUILTIN, LOW);
     // save the last time you read the sensor
     previousTempMillis = currentMillis;
 
@@ -180,8 +178,8 @@ void gettemperature() {
     // Check if any reads failed and exit early (to try again).
     if (isnan(temp_f)) {
       Serial.println("Failed to read from MLX sensor!");
-      return;
     }
+    digitalWrite(LED_BUILTIN, HIGH);
   }
 }
 
