@@ -13,6 +13,7 @@ var tempSeries = new TimeSeries();
 var chartCanvas;
       var theDiv;
 	   var mmDiv;
+	   //<link href="therm.css" rel="stylesheet"> 
   window.onload = function () {
   	     
   	     
@@ -190,7 +191,7 @@ function createTimeline() {
   chart = new SmoothieChart({millisPerPixel:2000,maxDataSetLength:2,grid:{millisPerLine:60000,sharpLines: true}});
   chart.addTimeSeries(tempSeries, { strokeStyle: 'rgba(255, 0, 0, 0.5)', fillStyle: 'rgba(50, 50, 50, 0.0)', lineWidth: 4 });
   chart.streamTo(chartCanvas, 5);
-  //resize(chartCanvas);
+  resize(chartCanvas);
 }
       
 function resetMinMax()
@@ -201,15 +202,17 @@ function resetMinMax()
 
 function resize(canvas) {
   // Lookup the size the browser is displaying the canvas.
-  var displayWidth  = canvas.clientWidth;
+  var displayWidth  = tempSlider.clientWidth;
   var displayHeight = canvas.clientHeight;
+  var w = Math.min(canvas.clientWidth, window.innerWidth || 0)
+var h = Math.max(canvas.clientHeight, canvas.innerHeight || 0)
   console.log(canvas.clientWidth +","+canvas.clientHeight+","+canvas.width+","+canvas.height );
   // Check if the canvas is not the same size.
-  if (canvas.width  != displayWidth ||
-      canvas.height != displayHeight) {
+  if (canvas.width  != w ||
+      canvas.height != h) {
 
     // Make the canvas the same size
-    canvas.width  = displayWidth;
-    canvas.height = displayHeight;
+    canvas.width  = w;
+    canvas.height = h;
   }
 }

@@ -1,7 +1,9 @@
 <head>
-    <link href="therm.css" rel="stylesheet">
     
+   <link href="bootstrap-theme.min.css" rel="stylesheet">
+    <link href="therm.css" rel="stylesheet">
     <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"></meta>
 </head>
 <title>Temperature</title>
 <body role="document">
@@ -10,26 +12,27 @@
     <center><div id=temperatureDiv></div></center>
     
     <center>
-     <button type="button" id=resetMinMax>Clear Min/Max</button> </center>
+     <button type="button" class='btn btn-lg btn-primary' id=resetMinMax>Clear Min/Max</button> </center>
      <div id=minMaxTempDiv>min/max</div>
  <br>
-      <div id=alarmDiv>
+      <div class='form-group' id=alarmDiv>
       
       <center>                              
             <input  id='tempSlider' type='range' min=-40 max=400 name='alarm'> 
             <br>
-            <label id='tempCurDiv' for='tempSlider' >0°F</label> </center>
-            <div class="verticalRadio">
-            <label class='checkbox' for='alarmOff'>No Alarm</label>
-            <input id='alarmOff' name='alarm' type='radio' value='No Alarm' checked>
+            <label id='tempCurDiv' for='tempSlider' >0°F</label> 
+      </center>
+            <div class="form-control">
+            <label class='checkbox-inline' for='alarmOff'>No Alarm
+            <input id='alarmOff' name='alarm' type='radio' value='No Alarm' checked></label>
             </div>
-            <div class="verticalRadio">
-            <label class='checkbox' for='heatAlarm'>High Temperature Alarm</label>
-            <input id='alarmHigh' name='alarm' type='radio' value='HighTemp'>
+            <div class="form-control">
+            <label class='checkbox-inline' for='alarmHigh'>High Temperature Alarm
+            <input id='alarmHigh' name='alarm' type='radio' value='HighTemp'></label>
             </div>
-            <div class="verticalRadio">
-            <label class='checkbox' for='coldAlarm'>Low Temperature Alarm</label>
-            <input id='alarmLow' name='alarm' type='radio' value='LowTemp'>
+            <div class="form-control">
+            <label class='checkbox-inline' for='alarmLow'>Low Temperature Alarm
+            <input id='alarmLow' name='alarm' type='radio' value='LowTemp'></label>
             </div>
        </div>
         <br>
@@ -43,7 +46,28 @@
             <label class='checkbox-inline' for='unitsC'>Metric</label>
             <input id='unitsC' name='units' type='radio' value='Metric'>
       </div>
-       <div id=dismissDiv>Dismiss Alarm?</div>
+    
+    <div id='dismissDiv' class="panel panel-danger">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+
+                Alarm
+
+            </h3>
+        </div>
+        <div class="panel-body">
+
+
+                          Touch to dismiss this message and silence alarm
+                        
+
+        </div>
+    </div>
+
+</div>
+</div>
+       <script src="bootstrap.min.js"></script>
 </body>
 <script src="smoothie.js" type="text/javascript"></script>
+
 <script src="therm.js"></script>
