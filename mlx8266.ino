@@ -97,6 +97,7 @@ String getContentType(String filename) {
   else if (filename.endsWith(".ico")) return "image/x-icon";
   else if (filename.endsWith(".xml")) return "text/xml";
   else if (filename.endsWith(".pdf")) return "application/x-pdf";
+  else if (filename.endsWith(".ogg")) return "audio/ogg";
   else if (filename.endsWith(".zip")) return "application/x-zip";
   else if (filename.endsWith(".gz")) return "application/x-gzip";
   return "text/plain";
